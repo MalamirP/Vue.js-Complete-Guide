@@ -1,0 +1,5 @@
+1 - What is Vue.js - is JS reactive framework, we are using vue for UI AND SAP aplication
+2 - Data Binding + Event Binding = Two-Way Binding
+3 - Event Handling
+4- computed property
+5-watch
