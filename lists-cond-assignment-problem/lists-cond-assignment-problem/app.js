@@ -8,9 +8,7 @@ const app = Vue.createApp({
     },
 
     computed: {
-        buttonCaption() {
-            return this.showdiv ? 'Hide List' : 'Show List'
-        }
+
     },
 
     methods: {
