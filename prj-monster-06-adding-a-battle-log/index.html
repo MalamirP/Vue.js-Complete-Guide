@@ -20,28 +20,25 @@
       <section id="monster" class="container">
         <h2>Monster Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value" v-bind:style="monsterBarStyles"></div>
+          <div class="healthbar__value" :style="monsterBarStyles"></div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value" v-bind:style="playerBarStyles"></div>
+          <div class="healthbar__value" :style="playerBarStyles"></div>
         </div>
       </section>
       <section class="container" v-if="winner">
         <h2>Game Over!</h2>
-        <h3 v-if="winner === monster">You lost!</h3>
-        <h3 v-else-if="winner === 'player'">You Won!</h3>
-        <h3 v-else="winner === 'draw'">It's a draw!</h3>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
+        <h3 v-else-if="winner === 'player'">You won!</h3>
+        <h3 v-else>It's a draw!</h3>
         <button @click="startGame">Start New Game</button>
       </section>
       <section id="controls" v-else>
         <button @click="attackMonster">ATTACK</button>
-        <button
-          v-bind:disabled="mayUseSpecialAttack"
-          @click="specialAttackMonster"
-        >
+        <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">
           SPECIAL ATTACK
         </button>
         <button @click="healPlayer">HEAL</button>
@@ -52,17 +49,17 @@
         <ul>
           <li v-for="logMessage in logMessages">
             <span
-              :class="{'log--player': logMessage.actionBy ==='player', 'log--monster': logMessage.actionBy=== 'monster'}"
-              >{{logMessage.actionBy === 'player' ? 'Player' : 'Monster'}}</span
+              :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}"
+              >{{ logMessage.actionBy === 'player' ? 'Player' : 'Monster'
+              }}</span
             >
-            <span v-if="logMessage.actionType === 'heal'"
-              >heals himself for<span class="log--heal"
-                >{{logMessage.actionValue}}</span
-              ></span
+            <span v-if="logMessage.actionType === 'heal'">
+              heals himself for
+              <span class="log--heal">{{ logMessage.actionValue }}</span></span
             >
             <span v-else>
-              attacks and deal
-              <span class="log--damage">{{logMessage.actionValue}}</span>
+              attacks and deals
+              <span class="log--damage">{{ logMessage.actionValue }}</span>
             </span>
           </li>
         </ul>
