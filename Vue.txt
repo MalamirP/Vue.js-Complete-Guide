@@ -3,3 +3,4 @@
 3 - Event Handling
 4- computed property
 5-watch
+5-Vue is reactive because is using proxy - proxy track our data stored and make them reusable
